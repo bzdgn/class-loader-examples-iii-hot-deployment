@@ -1,3 +1,7 @@
+This is an example of Hot Deployment with the use of class loaders
+Main purpose of this demo is to demostrate switching implementation classes while the application is in running state without any interruption
+*********
+
 	src		-> classes
 	server	-> serverclasses
 
