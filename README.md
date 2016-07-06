@@ -13,7 +13,9 @@ Scenario;
 *********
 On command line, run the Client code as;
 
-class-loader-examples-iii-hot-deployment>java -cp classes com.levo.Client
+	class-loader-examples-iii-hot-deployment>java -cp classes com.levo.Client
+
+Follow the steps;
 
 	a) get quote with command 'QUOTE'
 	b) switch the return message of the ServerImpl.getQuote() method
