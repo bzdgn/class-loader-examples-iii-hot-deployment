@@ -1,5 +1,5 @@
-src		-> classes
-server	-> serverclasses
+	src		-> classes
+	server	-> serverclasses
 
 buildClient scenario;
 
