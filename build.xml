@@ -1,0 +1,39 @@
+<project name="ant-build-example" default="build" basedir=".">
+	<!-- global properties -->
+	<property name="src"	value="src"			/>
+	<property name="build"	value="classes"		/>
+	
+	<path id="project.class.path">
+		<pathelement location="${build}" />
+	</path>
+	
+	<target name="prepare">
+		<tstamp/>
+		<property name="serverSrc"		value="server"		/>
+		<property name="serverClass"	value="serverclass"	/>
+	</target>
+
+	<target name="buildClient" depends="prepare" description="build client code">
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" debug="on" classpathref="project.class.path" >
+		</javac>
+	</target>
+
+	<target name="buildServer" depends="prepare" description="build server code">
+		<mkdir dir="${serverClass}" />
+		<javac srcdir="${serverSrc}" destdir="${serverClass}" debug="on" classpathref="project.class.path" >
+		</javac>
+	</target>
+
+	<target name="build" depends="buildClient, buildServer" description="build application for both sources">
+	</target>
+
+	<target name="run" depends="build" description="run application">
+		<java classname="com.levo.Client" classpathref="project.class.path" fork="true" />
+	</target>
+
+	<target name="clean" depends="prepare" description="clean output directories">
+		<delete dir="${serverClass}" />
+		<delete dir="${build}" />
+	</target>
+</project>
